@@ -10,3 +10,17 @@
 8.SELECT title FROM movie INNER JOIN casting ON movie.id = casting.movieid WHERE casting.actorid = (SELECT id FROM actor WHERE name='Harrison Ford');
 9.SELECT title FROM movie INNER JOIN casting ON movie.id = casting.movieid WHERE casting.actorid = (SELECT id FROM actor WHERE name='Harrison Ford') AND casting.ord != 1
 10.SELECT movie.title, actor.name FROM movie INNER JOIN casting ON movie.id = casting.movieid INNER JOIN actor ON actor.id = casting.actorid WHERE ord = 1 AND yr = 1962;
+11.SELECT yr,COUNT(title) FROM
+  movie JOIN casting ON movie.id=movieid
+        JOIN actor   ON actorid=actor.id
+WHERE name='Rock Hudson'
+GROUP BY yr
+HAVING COUNT(title) > 2
+12. SELECT title, name 
+FROM 
+   movie  JOIN casting ON movie.id=movieid
+          JOIN actor   ON actorid=actor.id
+WHERE ord = 1 AND movieid IN ( SELECT movieid 
+                               FROM casting JOIN actor
+                               ON actorid = actor.id
+                               WHERE name = 'Julie Andrews')
