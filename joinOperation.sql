@@ -29,7 +29,9 @@ SELECT id,stadium,team1,team2
 11. SELECT matchid, mdate, COUNT(goal.player)
   FROM game JOIN goal ON goal.matchid = game.id 
      WHERE (team1 = 'POL' OR team2 = 'POL')
-   GROUP BY matchid, mdate
+   GROUP BY matchid, mdate;
+
+12.SELECT matchid, mdate, COUNT(player) FROM goal JOIN game ON game.id = goal.matchid WHERE teamid = 'GER' GROUP BY goal.matchid, game.mdate, goal.teamid
     
 
 
