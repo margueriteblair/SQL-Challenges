@@ -19,7 +19,17 @@ SELECT id,stadium,team1,team2
 
 8.SELECT DISTINCT player
   FROM game JOIN goal ON goal.matchid = game.id 
-     WHERE ((team1 LIKE 'GER' OR team2 LIKE 'GER') AND teamid !='GER')
+     WHERE ((team1 LIKE 'GER' OR team2 LIKE 'GER') AND teamid !='GER');
+
+9.SELECT teamname, COUNT(player)
+  FROM eteam JOIN goal ON id=teamid
+ GROUP BY teamname
+
+10. SELECT game.stadium, COUNT(goal.player) FROM game JOIN goal ON game.id=goal.matchid GROUP BY stadium
+11. SELECT matchid, mdate, COUNT(goal.player)
+  FROM game JOIN goal ON goal.matchid = game.id 
+     WHERE (team1 = 'POL' OR team2 = 'POL')
+   GROUP BY matchid, mdate
     
 
 
