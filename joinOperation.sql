@@ -13,5 +13,13 @@ SELECT id,stadium,team1,team2
 
 5.SELECT goal.player, goal.teamid, eteam.coach, goal.gtime FROM goal JOIN eteam ON goal.teamid=eteam.id WHERE gtime<=10;
 
-6.SELECT game.mdate, eteam.teamname FROM game JOIN eteam ON game.team1=eteam.id WHERE eteam.coach LIKE 'Fernando Santos'
+6.SELECT game.mdate, eteam.teamname FROM game JOIN eteam ON game.team1=eteam.id WHERE eteam.coach LIKE 'Fernando Santos';
+
+7.SELECT goal.player FROM goal JOIN game ON goal.matchid = game.id WHERE game.stadium LIKE 'National Stadium, Warsaw';
+
+8.SELECT player
+  FROM game JOIN goal ON goal.matchid = game.id 
+     WHERE team1 LIKE 'GER' OR team2 LIKE 'GER' AND teamid NOT LIKE 'GER';
+    
+
 
