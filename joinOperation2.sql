@@ -25,3 +25,9 @@ WHERE ord = 1 AND movieid IN ( SELECT movieid
                                ON actorid = actor.id
                                WHERE name = 'Julie Andrews');
 13.SELECT actor.name FROM actor INNER JOIN casting ON actor.id = casting.actorid AND ord = 1 GROUP BY actor.id, actor.name HAVING COUNT(*) >=15 ORDER BY actor.name
+-- 14. 
+-- couldn't get 14, will return!
+15.SELECT name FROM actor INNER JOIN casting ON actor.id = casting.actorid WHERE casting.movieid IN ( SELECT movieid 
+                               FROM casting JOIN actor
+                               ON actorid = actor.id
+                               WHERE name = 'Art Garfunkel')
