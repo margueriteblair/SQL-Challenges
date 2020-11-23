@@ -6,3 +6,6 @@
 4.SELECT id FROM actor WHERE name = 'Glenn Close'
 5.SELECT id FROM movie WHERE title = 'Casablanca';
 6.SELECT name FROM casting INNER JOIN actor ON actor.id = casting.actorid WHERE movieid=11768;
+7.SELECT name FROM casting INNER JOIN actor on actor.id = casting.actorid WHERE movieid=(SELECT id FROM movie WHERE title='Alien');
+8.SELECT title FROM movie INNER JOIN casting ON movie.id = casting.movieid WHERE casting.actorid = (SELECT id FROM actor WHERE name='Harrison Ford');
+9.SELECT title FROM movie INNER JOIN casting ON movie.id = casting.movieid WHERE casting.actorid = (SELECT id FROM actor WHERE name='Harrison Ford') AND casting.ord != 1
