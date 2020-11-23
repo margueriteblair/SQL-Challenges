@@ -9,3 +9,4 @@
 7.SELECT name FROM casting INNER JOIN actor on actor.id = casting.actorid WHERE movieid=(SELECT id FROM movie WHERE title='Alien');
 8.SELECT title FROM movie INNER JOIN casting ON movie.id = casting.movieid WHERE casting.actorid = (SELECT id FROM actor WHERE name='Harrison Ford');
 9.SELECT title FROM movie INNER JOIN casting ON movie.id = casting.movieid WHERE casting.actorid = (SELECT id FROM actor WHERE name='Harrison Ford') AND casting.ord != 1
+10.SELECT movie.title, actor.name FROM movie INNER JOIN casting ON movie.id = casting.movieid INNER JOIN actor ON actor.id = casting.actorid WHERE ord = 1 AND yr = 1962;
