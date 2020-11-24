@@ -1,3 +1,5 @@
+
+--this is the schema:
 CREATE TABLE users (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 email VARCHAR(50),
@@ -36,10 +38,18 @@ INSERT INTO profiles (userId, firstName, lastName, created_on)
 VALUES (1, 'Cliff', 'Chon', CURRENT_TIMESTAMP);
 
 INSERT INTO profiles (userId, firstName, lastName, created_on)
-VALUES (1, 'Gabe', 'Sherman', CURRENT_TIMESTAMP);
+VALUES (2, 'Gabe', 'Sherman', CURRENT_TIMESTAMP);
 
 INSERT INTO profiles (userId, firstName, lastName, created_on)
-VALUES (1, 'Tom', 'Hodgkinson', CURRENT_TIMESTAMP);
+VALUES (3, 'Tom', 'Hodgkinson', CURRENT_TIMESTAMP);
 
 INSERT INTO posts (`profileId`, `title`, `content`)
 VALUES (1, 'SQL Syntax', 'Its not so bad');
+
+INSERT INTO posts (`profileId`, `title`, `content`)
+VALUES (2, 'Hacking the mainframe', 'Beep-boop');
+
+INSERT INTO posts (`profileId`, `title`, `content`)
+VALUES (3, 'Reeee', 'Hello world!');
+
+
