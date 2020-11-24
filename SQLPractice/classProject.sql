@@ -52,4 +52,8 @@ VALUES (2, 'Hacking the mainframe', 'Beep-boop');
 INSERT INTO posts (`profileId`, `title`, `content`)
 VALUES (3, 'Reeee', 'Hello world!');
 
+--QUERIESSELECT * 
+
+SELECT FROM posts INNER JOIN profiles ON profiles.userId = posts.profileId WHERE profiles.userId = 1
+SELECT posts.* FROM posts LEFT JOIN profiles on profiles.userId = 1;
 
