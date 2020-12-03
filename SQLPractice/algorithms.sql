@@ -30,3 +30,5 @@ FROM TRIANGLES;
         ELSE "Not A Triangle"
 END
 FROM TRIANGLES;
+
+6.SELECT name FROM Employee WHERE salary > 2000 AND months < 10 ORDER BY employee_id;
