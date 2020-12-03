@@ -22,3 +22,11 @@ FROM TRIANGLES;
         ELSE "Not A Triangle"
 END
 FROM TRIANGLES;
+
+5. SELECT CASE             
+        WHEN A=B AND B=C THEN "Equilateral"
+        WHEN (A+B>C AND B+C>A AND A+C>B) AND A=B OR B=C OR A=C THEN "Isosceles"
+        WHEN (A+B>=C AND B+C>=A AND A+C>=B) AND A!=B AND B!=C AND A!= C THEN "Scalene"
+        ELSE "Not A Triangle"
+END
+FROM TRIANGLES;
