@@ -49,6 +49,8 @@ SELECT CONCAT('There are a total of ', COUNT(Occupation), ' ', LOWER(Occupation)
 
 12. SELECT DISTINCT CITY FROM STATION WHERE CITY NOT LIKE "[aeiouAEIOU]%" OR CITY NOT LIKE "%[aeiouAEIOU]";
 
+--the square brackets aren't actually necessary
+--you need to aggregate the data within the PIVOT function
 13. SELECT
     [Doctor], [Professor], [Singer], [Actor]
 FROM
