@@ -48,3 +48,14 @@ SELECT TOP 1 CITY, LEN(CITY) FROM STATION ORDER BY LEN(CITY) DESC, CITY;
 SELECT CONCAT('There are a total of ', COUNT(Occupation), ' ', LOWER(Occupation), 's.') FROM OCCUPATIONS GROUP BY Occupation order by COUNT(Occupation);
 
 12. SELECT DISTINCT CITY FROM STATION WHERE CITY NOT LIKE "[aeiouAEIOU]%" OR CITY NOT LIKE "%[aeiouAEIOU]";
+
+13. SELECT
+    [Doctor], [Professor], [Singer], [Actor]
+FROM
+(
+    SELECT ROW_NUMBER() OVER (PARTITION BY OCCUPATION ORDER BY NAME) [RowNumber], * FROM OCCUPATIONS
+) AS tempTable
+PIVOT
+(
+    MAX(NAME) FOR OCCUPATION IN ([Doctor], [Professor], [Singer], [Actor])
+) AS pivotTable
