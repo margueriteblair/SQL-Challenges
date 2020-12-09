@@ -52,3 +52,19 @@ where
  stopa.name='Craiglockhart' 
  and a.company = 'LRT';
 
+10. select distinct
+ a.num,a.company,stopb.name,c.num,c.company
+from
+ route a 
+join
+ route b
+ on (a.company=b.company AND a.num=b.num)
+join (route c join route d on (c.company=d.company and c.num=d.num))
+join stops stopa on (a.stop=stopa.id)
+join stops stopb on (b.stop=stopb.id)
+join stops stopc on (c.stop=stopc.id)
+join stops stopd on (d.stop=stopd.id)
+where
+ stopa.name='Craiglockhart' 
+ and stopd.name='Lochend' 
+ and stopb.name = stopc.name
