@@ -5,4 +5,4 @@ SELECT DISTINCT COUNT(id) FROM stops
 SELECT id FROM stops WHERE name = 'Craiglockhart';
 
 3. --Give the id and the name for the stops on the '4' 'LRT' service.
-SELECT id, name FROM stops INNER JOIN route ON route.stop = stops.id WHERE num = 4
+SELECT id, name FROM stops INNER JOIN route ON route.stop = stops.id WHERE num = 4 ORDER BY pos;
