@@ -61,3 +61,6 @@ PIVOT
 (
     MAX(NAME) FOR OCCUPATION IN ([Doctor], [Professor], [Singer], [Actor])
 ) AS pivotTable
+
+14. SELECT IF(grade < 8, NULL, name), grade, mark FROM students LEFT JOIN grades on STUDENTS.marks BETWEEN grades.min_mark AND grades.max_mark
+ORDER BY grade DESC,name;
