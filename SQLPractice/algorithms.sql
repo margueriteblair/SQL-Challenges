@@ -86,3 +86,5 @@ order by total_score desc, h.hacker_id
 ;
 
 16. SELECT CITY.Name FROM CITY INNER JOIN COUNTRY ON COUNTRY.Code = CITY.CountryCode WHERE COUNTRY.Continent = "Africa";
+
+17. SELECT COUNTRY.Continent, AVG(CITY.Population) FROM COUNTRY INNER JOIN CITY ON COUNTRY.Code = CITY.CountryCode GROUP BY COUNTRY.Continent;
