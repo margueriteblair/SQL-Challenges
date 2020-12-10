@@ -90,3 +90,11 @@ order by total_score desc, h.hacker_id
 17. SELECT COUNTRY.Continent, AVG(CITY.Population) FROM COUNTRY INNER JOIN CITY ON COUNTRY.Code = CITY.CountryCode GROUP BY COUNTRY.Continent;
 
 18. SELECT SUM(CITY.Population) FROM CITY JOIN COUNTRY ON CITY.CountryCode = COUNTRY.Code WHERE COUNTRY.Continent = 'Asia' GROUP BY COUNTRY.Continent;
+
+19. --top competitors
+SELECT Hackers.hacker_id, Hackers.name FROM Hackers INNER JOIN Submissions ON (Hackers.hacker_id = Submissions.hacker_id)
+INNER JOIN Challenges ON (Challenges.challenge_id = Submissions.challenge_id)
+INNER JOIN Difficulty ON Difficulty.difficulty_level = Challenges.difficulty_level
+WHERE Difficulty.score = Submissions.score GROUP BY Hackers.hacker_id, Hackers.name 
+HAVING COUNT(Hackers.hacker_id) > 1
+ORDER BY COUNT(Hackers.hacker_id) DESC, Hackers.hacker_id;
