@@ -84,3 +84,5 @@ having total_score > 0
 /* finally order as required */
 order by total_score desc, h.hacker_id
 ;
+
+16. SELECT CITY.Name FROM CITY INNER JOIN COUNTRY ON COUNTRY.Code = CITY.CountryCode WHERE COUNTRY.Continent = "Africa";
