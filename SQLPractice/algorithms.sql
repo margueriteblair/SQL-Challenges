@@ -98,3 +98,14 @@ INNER JOIN Difficulty ON Difficulty.difficulty_level = Challenges.difficulty_lev
 WHERE Difficulty.score = Submissions.score GROUP BY Hackers.hacker_id, Hackers.name 
 HAVING COUNT(Hackers.hacker_id) > 1
 ORDER BY COUNT(Hackers.hacker_id) DESC, Hackers.hacker_id;
+
+20. --Olivanders 
+SELECT W.id, P.age, W.coins_needed, W.power
+FROM WANDS AS W
+    INNER JOIN WANDS_PROPERTY AS P ON W.code = P.code
+WHERE P.is_evil = 0 AND W.coins_needed = 
+    (SELECT MIN(coins_needed)
+     FROM WANDS AS W1
+        INNER JOIN WANDS_PROPERTY AS P1 ON W1.code = P1.code
+     WHERE W1.power = W.power AND P1.age = P.age)
+ORDER BY W.power DESC, P.age DESC
