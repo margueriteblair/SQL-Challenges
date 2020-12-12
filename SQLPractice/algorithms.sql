@@ -114,3 +114,28 @@ ORDER BY W.power DESC, P.age DESC
 SELECT Hackers.hacker_id, Hackers.name, COUNT(Challenges.challenge_id) FROM Hackers 
 INNER JOIN Challenges ON Challenges.hacker_id = Hackers.hacker_id
 GROUP BY Hackers.hacker_id, Hackers.name ORDER BY COUNT(challenge_id) DESC, Hackers.hacker_id;
+
+select c.hacker_id, h.name ,count(c.hacker_id) as c_count
+
+/* this is the join we want to output them from */
+from Hackers as h
+    inner join Challenges as c on c.hacker_id = h.hacker_id
+
+/* after they have been grouped by hacker */
+group by c.hacker_id
+having 
+    c_count = 
+        /* the max count that anyone has */
+        (SELECT MAX(temp1.cnt)
+        from (SELECT COUNT(hacker_id) as cnt
+             from Challenges
+             group by hacker_id
+             order by hacker_id) temp1)
+    or c_count in 
+        (select t.cnt
+         from (select count(*) as cnt 
+               from challenges
+               group by hacker_id) t
+         group by t.cnt
+         having count(t.cnt) = 1)
+order by c_count DESC, c.hacker_id;
