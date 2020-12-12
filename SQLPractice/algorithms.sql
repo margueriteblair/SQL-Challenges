@@ -109,3 +109,8 @@ WHERE P.is_evil = 0 AND W.coins_needed =
         INNER JOIN WANDS_PROPERTY AS P1 ON W1.code = P1.code
      WHERE W1.power = W.power AND P1.age = P.age)
 ORDER BY W.power DESC, P.age DESC
+
+21. --overview rough draft
+SELECT Hackers.hacker_id, Hackers.name, COUNT(Challenges.challenge_id) FROM Hackers 
+INNER JOIN Challenges ON Challenges.hacker_id = Hackers.hacker_id
+GROUP BY Hackers.hacker_id, Hackers.name ORDER BY COUNT(challenge_id) DESC, Hackers.hacker_id;
