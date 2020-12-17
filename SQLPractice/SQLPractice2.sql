@@ -2,4 +2,4 @@
 GROUP BY company.company_code, company.founder
 ORDER BY company.company_code;
 
-2. select ABS(MIN(lat_n)-MIN(long_w)) + ABS(MAX(lat_n)-MAX(long_w)) from station;
+2. select TRUNCATE(ABS(MIN(lat_n)-MAX(lat_n)) + ABS(MIN(long_w)-MAX(long_w)), 4) from station;
