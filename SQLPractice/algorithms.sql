@@ -162,4 +162,4 @@ WITH dates AS (
 SELECT start_date as one, end_date two, ROW_NUMBER() OVER(ORDER BY start_date) info
     FROM Projects GROUP BY start_date, end_date
 )
-SELECT MIN(one), MAX(two) FROM dates GROUP BY DATEDIFF(day, info, one) ORDER BY DATEDIFF(day, info, one);
+SELECT MIN(one), MAX(two) FROM dates GROUP BY DATEDIFF(day, info, one) ORDER BY DATEDIFF(day, MIN(one), MAX(two)), MAX(one);
