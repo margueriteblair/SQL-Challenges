@@ -12,3 +12,6 @@ ORDER BY company.company_code;
 select total_salary, COUNT(*) from salaries
 group by total_salary
 having total_salary = (SELECT MAX(total_salary) FROM salaries);
+
+
+5. SELECT SUM(POPULATION) FROM CITY WHERE DISTRICT = 'California'
