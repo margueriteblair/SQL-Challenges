@@ -15,3 +15,13 @@ having total_salary = (SELECT MAX(total_salary) FROM salaries);
 
 
 5. SELECT SUM(POPULATION) FROM CITY WHERE DISTRICT = 'California'
+
+6. --BST labelling
+SELECT N,
+CASE 
+WHEN P IS NULL THEN 'Root'
+WHEN N IN (SELECT P FROM bst) THEN 'Inner'
+ELSE 'Leaf'
+END AS relationship
+FROM bst
+ORDER BY N;
