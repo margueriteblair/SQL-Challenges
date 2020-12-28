@@ -25,3 +25,6 @@ ELSE 'Leaf'
 END AS relationship
 FROM bst
 ORDER BY N;
+
+7. --find the euclidian distance between two points on a 2D plane
+SELECT TRUNCATE(SQRT(POWER(MIN(LAT_N)-MAX(LAT_N) ,2)+POWER(MIN(LONG_W)-MAX(LONG_W),2)), 4) FROM STATION;
