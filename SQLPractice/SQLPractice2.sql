@@ -28,3 +28,10 @@ ORDER BY N;
 
 7. --find the euclidian distance between two points on a 2D plane
 SELECT TRUNCATE(SQRT(POWER(MIN(LAT_N)-MAX(LAT_N) ,2)+POWER(MIN(LONG_W)-MAX(LONG_W),2)), 4) FROM STATION;
+
+8. --FINDING THE MEDIAN
+WITH median AS (
+SELECT TOP 1 PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY lat_n) OVER() med
+FROM station
+)
+SELECT CAST(ROUND(med,4) AS DECIMAL(16, 4)) FROM median;
