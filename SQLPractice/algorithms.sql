@@ -166,3 +166,21 @@ SELECT MIN(one), MAX(two) FROM dates GROUP BY DATEDIFF(day, info, one) ORDER BY 
 
 23. 
 SELECT Students.Name FROM STUDENTS INNER JOIN FRIENDS ON STUDENTS.ID = FRIENDS.ID INNER JOIN PACKAGES ON PACKAGES.ID = STUDENTS.ID WHERE PACKAGES.Salary < (SELECT Salary AS friendSal FROM PACKAGES WHERE ID = FRIENDS.FRIEND_ID) ORDER BY (SELECT Salary AS friendSal FROM PACKAGES WHERE ID = FRIENDS.FRIEND_ID)
+
+24. --finding all of the primes under 1000 and then concatenating them with an '&'
+WITH temp AS
+(
+    SELECT 2 AS Value 
+    UNION ALL
+    SELECT t.Value+1 AS VAlue 
+    FROM temp t
+    WHERE t.Value < 1000
+)
+SELECT STRING_AGG(Value, "&") 
+FROM temp t
+WHERE NOT EXISTS
+            (   SELECT 1 FROM temp t2
+                WHERE t.Value % t2.Value = 0 
+                AND t.Value != t2. Value
+            )
+OPTION (MAXRECURSION 0)
