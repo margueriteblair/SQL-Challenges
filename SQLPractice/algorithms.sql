@@ -196,3 +196,16 @@ SELECT hi-wrong FROM CORRECT, INCORRECT;
 
 25.5 --same problem as 25, but written more concisely, still one off from being correct in the hackerrank editor
 SELECT CAST(CEILING((AVG(CAST(Salary AS FLOAT)))-(AVG(CAST(REPLACE(STR(Salary), '0', '') AS FLOAT)))) AS INT) FROM EMPLOYEES;
+
+26. --print out a triangle of 20 lines
+WITH temp AS
+(
+    SELECT 20 AS Value 
+    UNION ALL
+    SELECT t.Value-1 AS VAlue 
+    FROM temp t
+    WHERE t.Value > 1
+)
+SELECT REPLICATE('* ', Value)
+FROM temp t
+OPTION (MAXRECURSION 0)
