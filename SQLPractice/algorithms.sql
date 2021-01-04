@@ -193,3 +193,6 @@ CORRECT AS (
     SELECT CAST(AVG(Salary) AS FLOAT) AS hi FROM EMPLOYEES
 )
 SELECT hi-wrong FROM CORRECT, INCORRECT;
+
+25.5 --same problem as 25, but written more concisely, still one off from being correct in the hackerrank editor
+SELECT CEILING((AVG(Salary))-(AVG(CAST(REPLACE(STR(Salary), '0', '') AS INT)))) FROM EMPLOYEES;
