@@ -184,3 +184,12 @@ WHERE NOT EXISTS
                 AND t.Value != t2. Value
             )
 OPTION (MAXRECURSION 0)
+
+25. --finding the difference between two calculated avg salaries: one correct, one incorrect
+WITH INCORRECT AS (
+    SELECT (AVG(CAST(REPLACE(STR(Salary), '0', '') AS FLOAT))) AS wrong FROM EMPLOYEES
+),
+CORRECT AS (
+    SELECT CAST(AVG(Salary) AS FLOAT) AS hi FROM EMPLOYEES
+)
+SELECT hi-wrong FROM CORRECT, INCORRECT;
