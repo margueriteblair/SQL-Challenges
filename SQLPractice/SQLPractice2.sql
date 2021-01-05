@@ -38,3 +38,6 @@ SELECT CAST(ROUND(med,4) AS DECIMAL(16, 4)) FROM median;
 
 9. --Report generating
 SELECT IF(Grades.Grade < 8, NULL, Students.Name), Grades.Grade, Students.Marks FROM Students INNER JOIN Grades ON Students.Marks BETWEEN Grades.Min_Mark AND Grades.Max_Mark ORDER BY Grades.grade DESC, Students.Name;
+
+10. --Reviewing aggregates
+SELECT AVG(POPULATION) FROM CITY WHERE DISTRICT = 'CALIFORNIA';
