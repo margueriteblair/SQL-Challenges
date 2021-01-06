@@ -48,3 +48,12 @@ INNER JOIN Functions f2 ON f1.X=f2.Y AND f1.Y=f2.X
 GROUP BY f1.X, f1.Y
 HAVING COUNT(f1.X)>1 or f1.X<f1.Y
 ORDER BY f1.X;
+
+12. --reversing the triangle 2
+WITH cte as (
+SELECT 1 AS Number
+    UNION ALL
+    SELECT Number+1 FROM cte
+    WHERE Number < 20
+)
+SELECT replicate('* ', Number) FROM cte;
