@@ -57,3 +57,13 @@ SELECT 1 AS Number
     WHERE Number < 20
 )
 SELECT replicate('* ', Number) FROM cte;
+
+13. --type of triangle
+SELECT
+CASE
+WHEN A = B AND B = C THEN 'Equilateral'
+WHEN (A != B AND B != C AND A != C) AND ((A+B >= C and a < c and b < c) OR (B+C >= A AND B < A AND C < A) OR (C+A>=B AND C < B AND A < B)) THEN 'Scalene'
+WHEN (A = B OR B = C OR A = C) AND ((A + B > C AND A < C AND B < C) OR (B + C > A AND B < A AND C < A) OR (A + C > B AND A < B AND C < B)) THEN 'Isosceles'
+ELSE 'Not A Triangle'
+END AS triangleType
+FROM TRIANGLES;
