@@ -84,3 +84,6 @@ SELECT * FROM CITY WHERE COUNTRYCODE = 'USA' AND POPULATION > 100000;
 
 18. --general query test
 SELECT * FROM CITY;
+
+19. --BASIC test of ability to use count aggregate
+SELECT COUNT(*) FROM CITY WHERE POPULATION > 100000;
