@@ -90,3 +90,6 @@ SELECT COUNT(*) FROM CITY WHERE POPULATION > 100000;
 
 20. --querying total city population
 SELECT SUM(POPULATION) FROM CITY WHERE DISTRICT = 'California';
+
+21. --select average population across all countries
+SELECT AVG(POPULATION) FROM CITY; 
