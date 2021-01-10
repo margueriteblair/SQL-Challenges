@@ -93,3 +93,6 @@ SELECT SUM(POPULATION) FROM CITY WHERE DISTRICT = 'California';
 
 21. --select average population across all countries
 SELECT AVG(POPULATION) FROM CITY; 
+
+22. --querying the difference between max and min populations
+SELECT (MAX(POPULATION)-MIN(POPULATION)) FROM CITY;
