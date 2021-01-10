@@ -81,3 +81,6 @@ SELECT Name FROM CITY WHERE COUNTRYCODE = 'USA' AND POPULATION > 120000;
 
 17. --more querying city data from cities in the usa
 SELECT * FROM CITY WHERE COUNTRYCODE = 'USA' AND POPULATION > 100000;
+
+18. --general query test
+SELECT * FROM CITY;
