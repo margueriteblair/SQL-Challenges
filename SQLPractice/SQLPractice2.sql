@@ -87,3 +87,6 @@ SELECT * FROM CITY;
 
 19. --BASIC test of ability to use count aggregate
 SELECT COUNT(*) FROM CITY WHERE POPULATION > 100000;
+
+20. --querying total city population
+SELECT SUM(POPULATION) FROM CITY WHERE DISTRICT = 'California';
