@@ -71,3 +71,7 @@ FROM TRIANGLES;
 14. --Challenges 2
 SELECT Hackers.hacker_id, Hackers.name, SUM(t2.totalscore) totalscore2 FROM Hackers INNER JOIN
 (SELECT Submissions.hacker_id, MAX(Submissions.score) AS totalscore FROM Submissions GROUP BY Submissions.challenge_id, Submissions.hacker_id) AS t2 ON t2.hacker_id = Hackers.hacker_id GROUP BY Hackers.hacker_id, Hackers.name HAVING totalscore2 > 0 ORDER BY totalscore2 DESC, Hackers.hacker_id;
+
+
+15. --weather station 15
+SELECT CAST(ROUND(LONG_W, 4) AS NUMERIC(16, 4)) FROM STATION WHERE LAT_N = (SELECT MAX(LAT_N) FROM STATION WHERE LAT_N < 137.2345);
