@@ -75,3 +75,6 @@ SELECT Hackers.hacker_id, Hackers.name, SUM(t2.totalscore) totalscore2 FROM Hack
 
 15. --weather station 15
 SELECT CAST(ROUND(LONG_W, 4) AS NUMERIC(16, 4)) FROM STATION WHERE LAT_N = (SELECT MAX(LAT_N) FROM STATION WHERE LAT_N < 137.2345);
+
+16. --querying city names in the usa
+SELECT Name FROM CITY WHERE COUNTRYCODE = 'USA' AND POPULATION > 120000;
