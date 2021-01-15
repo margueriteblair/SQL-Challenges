@@ -96,3 +96,6 @@ SELECT AVG(POPULATION) FROM CITY;
 
 22. --querying the difference between max and min populations
 SELECT (MAX(POPULATION)-MIN(POPULATION)) FROM CITY;
+
+23. --querying all cities for the one that has the id 1661
+SELECT * FROM CITY WHERE ID = 1661;
