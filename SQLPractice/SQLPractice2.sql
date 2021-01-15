@@ -99,3 +99,6 @@ SELECT (MAX(POPULATION)-MIN(POPULATION)) FROM CITY;
 
 23. --querying all cities for the one that has the id 1661
 SELECT * FROM CITY WHERE ID = 1661;
+
+24. --querying all japanese cities by countrycode
+SELECT * FROM CITY WHERE COUNTRYCODE='JPN';
