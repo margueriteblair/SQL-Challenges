@@ -102,3 +102,4 @@ SELECT * FROM CITY WHERE ID = 1661;
 
 24. --querying all japanese cities by countrycode
 SELECT * FROM CITY WHERE COUNTRYCODE='JPN';
+
