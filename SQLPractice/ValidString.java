@@ -4,8 +4,8 @@ import java.util.regex.Pattern;
 
 public class ValidString {
     public static void main(String[] args) {
-        System.out.println(validityTest("ABC200050A"));
-        System.out.println(validityTest("ABC209950A"));
+        System.out.println(validityTest("ABC191050A"));
+        System.out.println(validityTest("DEF20191000B"));
     }
 
     public static int countValid(List<String> list) {
@@ -28,14 +28,14 @@ public class ValidString {
         }
 
         String second = str.substring(3, 7);
-        Pattern pattern = Pattern.compile("19[0-9][0-9]|20[0-2][0-9]");
+        Pattern pattern = Pattern.compile("19[0-9][0-9]|20[0-1][0-9]");
         Matcher matcher = pattern.matcher(second);
         if (matcher.find() == false) {
             return false;
         }
 
         String third = str.substring(7, str.length()-1);
-        Pattern pattern2 = Pattern.compile("[10|20|50|100|200|500|1000]");
+        Pattern pattern2 = Pattern.compile("[10|20|50|100|200|500|1000]"); //would denominations literally just mean divisible by 10?
         Matcher matcher2 = pattern2.matcher(third);
         if (matcher2.find() == false) {
             return false;
