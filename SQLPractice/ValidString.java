@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class ValidString {
     public static void main(String[] args) {
-        System.out.println(validityTest("ABC191050A"));
+        System.out.println(validityTest("ABC1910R50A"));
         System.out.println(validityTest("DEF20191000B"));
     }
 
@@ -35,11 +35,19 @@ public class ValidString {
         }
 
         String third = str.substring(7, str.length()-1);
-        Pattern pattern2 = Pattern.compile("[10|20|50|100|200|500|1000]"); //would denominations literally just mean divisible by 10?
-        Matcher matcher2 = pattern2.matcher(third);
-        if (matcher2.find() == false) {
+        try {
+            int denomination = Integer.parseInt(third);
+            if (denomination % 25 != 0) {
+                return false;
+            }
+        } catch (Exception ex) {
             return false;
         }
+        // Pattern pattern2 = Pattern.compile("[^A-Za-z][25|50|100|200|500|1000]"); //would denominations literally just mean divisible by 10?
+        // Matcher matcher2 = pattern2.matcher(third);
+        // if (matcher2.find() == false) {
+        //     return false;
+        // }
 
         String last = str.substring(str.length()-1);
         Pattern pattern3 = Pattern.compile("[A-Z]");
