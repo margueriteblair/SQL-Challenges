@@ -104,7 +104,5 @@ SELECT * FROM CITY WHERE ID = 1661;
 SELECT * FROM CITY WHERE COUNTRYCODE='JPN';
 
 25. 
-
-UPDATE Salary 
-SET sex = 'f'
-WHERE sex = 'm';
+Update Salary SET sex= 
+CASE when sex='m' then 'f' when sex='f' then 'm' END;
