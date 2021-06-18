@@ -103,6 +103,7 @@ SELECT * FROM CITY WHERE ID = 1661;
 24. --querying all japanese cities by countrycode
 SELECT * FROM CITY WHERE COUNTRYCODE='JPN';
 
-25. 
+
+25. --from a table called salary, we're swapping all of the male and female roles 
 Update Salary SET sex= 
 CASE when sex='m' then 'f' when sex='f' then 'm' END;
