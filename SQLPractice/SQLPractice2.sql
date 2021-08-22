@@ -120,3 +120,5 @@ END
 FROM TRIANGLES;
 
 SELECT EMPLOYEE.company_code, COMPANY.founder, COUNT(DISTINCT lead_manager_code), COUNT(DISTINCT senior_manager_code), COUNT(DISTINCT manager_code), COUNT(DISTINCT employee_code) FROM COMPANY INNER JOIN EMPLOYEE ON COMPANY.company_code = EMPLOYEE.company_code GROUP BY EMPLOYEE.company_code, COMPANY.founder ORDER BY EMPLOYEE.company_code;
+
+select distinct city from station where id % 2 = 0;
