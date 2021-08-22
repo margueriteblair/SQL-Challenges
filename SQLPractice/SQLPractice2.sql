@@ -118,3 +118,5 @@ WHEN (A != B AND B != C and A != C) AND ((A + B >= C AND A < C AND B < C) OR (A+
 ELSE 'Not A Triangle'
 END
 FROM TRIANGLES;
+
+SELECT EMPLOYEE.company_code, COMPANY.founder, COUNT(DISTINCT lead_manager_code), COUNT(DISTINCT senior_manager_code), COUNT(DISTINCT manager_code), COUNT(DISTINCT employee_code) FROM COMPANY INNER JOIN EMPLOYEE ON COMPANY.company_code = EMPLOYEE.company_code GROUP BY EMPLOYEE.company_code, COMPANY.founder ORDER BY EMPLOYEE.company_code;
