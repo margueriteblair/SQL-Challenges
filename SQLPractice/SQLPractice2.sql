@@ -107,3 +107,14 @@ SELECT * FROM CITY WHERE COUNTRYCODE='JPN';
 25. --from a table called salary, we're swapping all of the male and female roles 
 Update Salary SET sex= 
 CASE when sex='m' then 'f' when sex='f' then 'm' END;
+
+
+26. --triangles again
+SELECT
+CASE
+WHEN A = B AND B = C THEN 'Equilateral'
+WHEN (A = B OR B = C OR A = C) AND ((A + B > C AND A < C AND B < C) OR (A+C > B AND A < B AND C < B) OR (C+B > A AND C < A AND B < A)) THEN 'Isosceles'
+WHEN (A != B AND B != C and A != C) AND ((A + B >= C AND A < C AND B < C) OR (A+C >= B AND A < B AND C < B) OR (C+B >= A AND C < A AND B < A)) THEN 'Scalene'
+ELSE 'Not A Triangle'
+END
+FROM TRIANGLES;
