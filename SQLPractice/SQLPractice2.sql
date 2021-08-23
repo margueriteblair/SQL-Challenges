@@ -126,3 +126,6 @@ select distinct city from station where id % 2 = 0;
 SELECT name FROM EMPLOYEE ORDER BY name;
 
 SELECT Name FROM STUDENTS WHERE Marks > 75 ORDER BY SUBSTRING(Name, LEN(NAME)-2, 3), Id;
+
+
+select count(name) from CITY where population > 100000;
