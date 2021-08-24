@@ -133,3 +133,5 @@ select count(name) from CITY where population > 100000;
 SELECT SUM(population) FROM CITY WHERE DISTRICT = 'California';
 
 SELECT SUM(CITY.Population) FROM CITY INNER JOIN COUNTRY ON CITY.CountryCode = COUNTRY.Code WHERE CONTINENT = 'Asia';
+
+SELECT COUNTRY.Continent, AVG(CITY.Population) FROM CITY INNER JOIN COUNTRY ON CITY.CountryCode = COUNTRY.Code GROUP BY COUNTRY.Continent;
