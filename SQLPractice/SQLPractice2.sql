@@ -131,3 +131,5 @@ SELECT Name FROM STUDENTS WHERE Marks > 75 ORDER BY SUBSTRING(Name, LEN(NAME)-2,
 select count(name) from CITY where population > 100000;
 
 SELECT SUM(population) FROM CITY WHERE DISTRICT = 'California';
+
+SELECT SUM(CITY.Population) FROM CITY INNER JOIN COUNTRY ON CITY.CountryCode = COUNTRY.Code WHERE CONTINENT = 'Asia';
