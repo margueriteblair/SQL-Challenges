@@ -159,12 +159,18 @@ WITH Data AS (
 )
 SELECT replicate('* ', N) FROM Data;
 
---Selecting all primes and joining them with an ampersand for primes under 1000
+35. --Selecting all primes and joining them with an ampersand for primes under 1000
 WITH Nums AS (
     SELECT 2 AS N
     UNION ALL
     SELECT N+1 FROM Nums
     WHERE N < 1000
 )
-SELECT * FROM Nums
-OPTION (MAXRECURSION 1000);
+SELECT STRING_AGG(N, "&") 
+FROM Nums t
+WHERE NOT EXISTS
+            (   SELECT 1 FROM Nums t2
+                WHERE t.N % t2.N = 0 
+                AND t.N != t2.N
+            )
+OPTION (MAXRECURSION 0)
