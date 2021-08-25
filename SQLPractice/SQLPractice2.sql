@@ -151,3 +151,12 @@ WITH Data AS (
     WHERE N < 20
 )
 SELECT replicate('* ', N) FROM Data;
+
+WITH Nums AS (
+    SELECT 2 AS N
+    UNION ALL
+    SELECT N+1 FROM Nums
+    WHERE N < 1000
+)
+SELECT * FROM Nums
+OPTION (MAXRECURSION 1000);
