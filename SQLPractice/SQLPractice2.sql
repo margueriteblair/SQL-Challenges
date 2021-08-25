@@ -119,23 +119,30 @@ ELSE 'Not A Triangle'
 END
 FROM TRIANGLES;
 
+27. --selecting acquired companies from a joined table
 SELECT EMPLOYEE.company_code, COMPANY.founder, COUNT(DISTINCT lead_manager_code), COUNT(DISTINCT senior_manager_code), COUNT(DISTINCT manager_code), COUNT(DISTINCT employee_code) FROM COMPANY INNER JOIN EMPLOYEE ON COMPANY.company_code = EMPLOYEE.company_code GROUP BY EMPLOYEE.company_code, COMPANY.founder ORDER BY EMPLOYEE.company_code;
 
+28. --selecting station id's from a list of cities where the id is even
 select distinct city from station where id % 2 = 0;
 
+29. --basic select statement to select employee name and order alphabetically
 SELECT name FROM EMPLOYEE ORDER BY name;
 
+30. --selecting students who have received grades over 75
 SELECT Name FROM STUDENTS WHERE Marks > 75 ORDER BY SUBSTRING(Name, LEN(NAME)-2, 3), Id;
 
-
+31. --select count
 select count(name) from CITY where population > 100000;
 
+32. --selecting the sum of populations of all cities in california
 SELECT SUM(population) FROM CITY WHERE DISTRICT = 'California';
 
+33. --Selecting sum of city population joined with the country table
 SELECT SUM(CITY.Population) FROM CITY INNER JOIN COUNTRY ON CITY.CountryCode = COUNTRY.Code WHERE CONTINENT = 'Asia';
 
 SELECT COUNTRY.Continent, AVG(CITY.Population) FROM CITY INNER JOIN COUNTRY ON CITY.CountryCode = COUNTRY.Code GROUP BY COUNTRY.Continent;
 
+34. --alternative query to design a pyramid triangle
 WITH Data AS (
     SELECT 20 AS N
     UNION ALL
@@ -152,6 +159,7 @@ WITH Data AS (
 )
 SELECT replicate('* ', N) FROM Data;
 
+--Selecting all primes and joining them with an ampersand for primes under 1000
 WITH Nums AS (
     SELECT 2 AS N
     UNION ALL
