@@ -142,4 +142,4 @@ WITH Data AS (
     SELECT N-1 FROM Data
     WHERE N > 1
 )
-SELECT * FROM Data;
+SELECT replicate('* ', N) FROM Data;
