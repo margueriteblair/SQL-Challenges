@@ -143,3 +143,11 @@ WITH Data AS (
     WHERE N > 1
 )
 SELECT replicate('* ', N) FROM Data;
+
+WITH Data AS (
+    SELECT 1 AS N
+    UNION ALL
+    SELECT N+1 FROM Data
+    WHERE N < 20
+)
+SELECT replicate('* ', N) FROM Data;
