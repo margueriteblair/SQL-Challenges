@@ -177,3 +177,5 @@ OPTION (MAXRECURSION 0)
 
 36. --Joining basic
 SELECT CITY.Name FROM CITY INNER JOIN ON COUNTRY WHERE COUNTRY.Code = CITY.CountryCode WHERE Continent = 'Africa';
+
+SELECT IF(Grades.Grade < 8, NULL, Students.Name), Grades.Grade, Students.Marks FROM Students INNER JOIN Grades ON Students.Marks BETWEEN Grades.Min_Mark AND Grades.Max_Mark ORDER BY Grades.grade DESC, Students.Name;
