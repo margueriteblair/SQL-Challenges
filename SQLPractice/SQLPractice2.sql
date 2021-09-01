@@ -174,3 +174,6 @@ WHERE NOT EXISTS
                 AND t.N != t2.N
             )
 OPTION (MAXRECURSION 0)
+
+36. --Joining basic
+SELECT CITY.Name FROM CITY INNER JOIN ON COUNTRY WHERE COUNTRY.Code = CITY.CountryCode WHERE Continent = 'Africa';
